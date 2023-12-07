@@ -1,0 +1,20 @@
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            .preference(key: CustomPreferenceKey.self, value: newValue)
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    newValue = "ASDASDAD"
+                }
+            }
+    }
+}
+
+struct UsingCustomPreferenceKeyView: View {
+    
+    @State private var text: String = ""
+    
+    var body: some View {
+        VStack {
+            SupportedView()
+            Text(text)
+            
+        }
